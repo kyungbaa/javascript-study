@@ -39,3 +39,13 @@
   display: none;
   border-radius: 0px;
 }
+
+#form #emailAlert {
+  color: tomato;
+  display: none;
+}
+
+#form #passwordAlert {
+  color: tomato;
+  display: none;
+}

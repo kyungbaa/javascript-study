@@ -27,13 +27,28 @@
     <div class="black-background">
       <div class="white-background">
         <p id="white-background-text">로그인해주세요.</p>
-        <a
-          id="checkBtn"
-          class="btn btn-primary btn-danger"
-          href="#"
-          role="button "
-          >확인</a
-        >
+        <form id="form" action="login.php">
+          <div class="form-group">
+            <input
+              type="email"
+              class="form-control"
+              placeholder="Email"
+              id="email"
+            />
+            <p id="emailAlert">이메일을 입력해주세요.</p>
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Password"
+              id="password"
+            />
+            <p id="passwordAlert">비밀번호를 입력해주세요.</p>
+          </div>
+          <button type="submit" class="btn btn-primary btn-submit">전송</button>
+          <button class="btn btn-primary btn-danger" id="close">취소</button>
+        </form>
       </div>
     </div>
     <div class="nav-menu">
@@ -81,19 +96,19 @@
 
     <script>
       /*
-      document
-        .getElementById("inputBtn")
-        .addEventListener("click", function () {
-          let inputValue = document.getElementById("input").value;
-          console.log(inputValue);
-          if (inputValue == "안녕") {
-            document.getElementById("black-background").style.display = "block";
-          } else {
-            alert("다시 입력해주세요.");
-          }
-        });
+            document
+              .getElementById("inputBtn")
+              .addEventListener("click", function () {
+                let inputValue = document.getElementById("input").value;
+                console.log(inputValue);
+                if (inputValue == "안녕") {
+                  document.getElementById("black-background").style.display = "block";
+                } else {
+                  alert("다시 입력해주세요.");
+                }
+              });
 
-        */
+              */
 
       //   $("#loginBtn").on("click", function () {
       //     if ($("#input").val() == "안녕") {
@@ -104,9 +119,42 @@
       //       $(".black-background").fadeIn();
       //     }
       //   });
+      /*
+      버튼이 클릭 됐을때, email이 공칸이면 전송이 되지 않음.
+            $(".btn-submit").on("click", function () {
+              if (
+                $("#email").val() === " " ||
+                $("#email").val() === null ||
+                $("#email").val().length === 0
+              ) {
+                $("#white-background-text").html("이메일을 입력해 주세요.");
+                return false;
+              }
+            });
+            */
 
-      $("#checkBtn").on("click", function () {
+      // 폼이 전송될 때,
+      // 이메일이 공칸일 경우 폼의 전송을 막고, 안내문
+      // 비밀번호가 공칸일 경우 폼의 전송을 막고, 안내문
+
+      // on.("submit")**
+      $("#form").on("submit", function (e) {
+        if ($("#email").val() == "") {
+          $("#emailAlert").css("display", "block");
+          e.preventDefault();
+        }
+        if ($("#password").val() == "") {
+          $("#passwordAlert").show();
+          e.preventDefault();
+        }
+      });
+
+      $("#close").on("click", function () {
         $(".black-background").fadeOut();
+      });
+
+      $("#loginBtn").on("click", function () {
+        $(".black-background").fadeIn();
       });
 
       $("#productLink").on("click", function () {
