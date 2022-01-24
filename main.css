@@ -1,0 +1,15 @@
+.yellow-bg {
+  background-color: rosybrown;
+}
+.alert-box {
+  background-color: cornflowerblue;
+  color: rgb(22, 32, 32);
+  padding: 10px;
+  border-radius: 3px;
+  display: none;
+  margin-bottom: 10px;
+}
+
+.alert-box p {
+  display: inline;
+}

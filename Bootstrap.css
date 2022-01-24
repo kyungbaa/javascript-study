@@ -1,0 +1,41 @@
+.main-background {
+  background-image: url(image/1.jpg);
+  background-size: cover;
+  color: white;
+  border-radius: 0px;
+}
+
+.black-background {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.white-background {
+  background-color: white;
+  border-radius: 5px;
+  width: 80%;
+  margin: 100px auto;
+  padding: 20px;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+}
+.nav-menu h4 {
+  margin: 0;
+}
+.nav-menu a {
+  padding: 10px;
+}
+
+.nav-sub {
+  display: none;
+  border-radius: 0px;
+}
