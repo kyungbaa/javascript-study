@@ -11,14 +11,19 @@
   z-index: 5;
   width: 100%;
   height: 100%;
-  display: none;
+  display: block;
+  transition: all 1s ease-in-out;
+  transform: translateY(-1200px);
+}
+.slide-down {
+  transform: translateY(0px);
 }
 
 .white-background {
   background-color: white;
   border-radius: 5px;
   width: 80%;
-  margin: 100px auto;
+  margin: 200px auto;
   padding: 20px;
 }
 
@@ -48,4 +53,27 @@
 #form #passwordAlert {
   color: tomato;
   display: none;
+}
+
+.left-menu {
+  width: 200px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.726);
+  color: white;
+  position: fixed;
+  z-index: 5;
+  margin-left: -200px;
+}
+
+.slide-container {
+  width: 300vw;
+  transform: translateX(0vw);
+  transition: transform 1s ease-in-out;
+}
+.slide-box {
+  width: 100vw;
+  float: left;
+}
+.slide-box img {
+  width: 100%;
 }
