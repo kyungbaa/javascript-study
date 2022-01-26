@@ -1,5 +1,5 @@
 .main-background {
-  background-image: url(image/1.jpg);
+  background-image: url(../image/1.jpg);
   background-size: cover;
   color: white;
   border-radius: 0px;
@@ -40,17 +40,18 @@
 }
 
 .nav-menu-scroll {
+  transition: all 0.3s ease-in-out;
   background-color: rgba(20, 20, 20, 0.856);
 }
 .nav-menu h4 {
   margin: 0;
   font-size: 33px;
-  transition: all 1s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .nav-menu a {
   padding: 10px;
   font-size: 22px;
-  transition: all 1s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .scroll-move h4 {
@@ -112,4 +113,41 @@
   display: flex;
   justify-content: space-between;
   top: 45%;
+}
+
+ul.list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #ccc;
+}
+ul.list::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.tab-button {
+  display: block;
+  padding: 10px 20px 10px 20px;
+  float: left;
+  margin-right: -1px;
+  margin-bottom: -1px;
+  color: grey;
+  text-decoration: none;
+  cursor: pointer;
+}
+.active {
+  border-top: 2px solid rgb(255, 0, 64);
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid white;
+  border-left: 1px solid #ccc;
+  color: black;
+  margin-top: -2px;
+}
+.tab-content {
+  display: none;
+  padding: 10px;
+}
+.show {
+  display: block;
 }

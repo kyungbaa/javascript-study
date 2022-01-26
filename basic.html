@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="alert-box" id="id">
+      <p id="text">아이디를 입력안하셨어요.</p>
+      <button id="close">X</button>
+    </div>
+    <button onclick="aleartControlChange('아이디를 입력해요.')">
+      아이디 버튼
+    </button>
+    <button onclick="aleartControlChange('비밀번호를 입력해요.')">
+      비밀번호 버튼
+    </button>
+
+    <script>
+      document.getElementById("close").addEventListener("click", function () {
+        document.getElementById("id").style.display = "none";
+      });
+
+      function aleartControlChange(text) {
+        document.getElementById("text").innerHTML = text;
+        document.getElementById("id").style.display = "block";
+      }
+    </script>
+  </body>
+</html>
