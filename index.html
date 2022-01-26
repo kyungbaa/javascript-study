@@ -168,183 +168,15 @@
       </div>
     </div>
 
-    <script>
-      // section1 slide 시작 하단 사진 번호
-      const slide1_button = document.querySelector(".slide-1");
-      const slide2_button = document.querySelector(".slide-2");
-      const slide3_button = document.querySelector(".slide-3");
-
-      const slide_container = document.querySelector(".slide-container");
-      slide1_button.addEventListener("click", function () {
-        현재이미지 = 1;
-        slide_container.style.transform = "translateX(0vw)";
-      });
-      slide2_button.addEventListener("click", function () {
-        현재이미지 = 2;
-        slide_container.style.transform = "translateX(-100vw)";
-      });
-      slide3_button.addEventListener("click", function () {
-        현재이미지 = 3;
-        slide_container.style.transform = "translateX(-200vw)";
-      });
-
-      // section1 slide 왼쪽 오른쪽 이동 버튼
-      const slide_left = document.querySelector(".slide-left");
-      const slide_right = document.querySelector(".slide-right");
-      let 현재이미지 = 1;
-
-      // 확장성 없이 짠 코드 (제이쿼리 미사용)
-      // slide_right.addEventListener("click", function () {
-      //   if (현재이미지 == 1) {
-      //     현재이미지 = 2;
-      //     slide_container.style.transform = "translateX(-100vw)";
-      //   } else if (현재이미지 == 2) {
-      //     현재이미지 = 3;
-      //     slide_container.style.transform = "translateX(-200vw)";
-      //   }
-      // });
-
-      // 사진 이미지 추가할때마다 수정할 필요 없도록 수정함
-      $(slide_right).click(function () {
-        if (현재이미지 < 3) {
-          $(slide_container).css(
-            "transform",
-            "translateX(-" + 현재이미지 + "00vw)"
-          );
-          현재이미지 = 현재이미지 + 1;
-        }
-      });
-
-      // 이전 버튼
-      $(slide_left).click(function () {
-        if (현재이미지 > 1) {
-          $(slide_container).css(
-            "transform",
-            "translateX(-" + (현재이미지 - 2) + "00vw)"
-          );
-          현재이미지 = 현재이미지 - 1;
-        }
-      });
-
-      // 왼쪽 nav menu 버튼
-      $("#show-menu").click(function () {
-        $(".left-menu").animate({ marginLeft: "0px" });
-      });
-    </script>
+    <h4>상품제목</h4>
+    <p>상품 내용</p>
 
     <script>
-      /*
-            document
-              .getElementById("inputBtn")
-              .addEventListener("click", function () {
-                let inputValue = document.getElementById("input").value;
-                console.log(inputValue);
-                if (inputValue == "안녕") {
-                  document.getElementById("black-background").style.display = "block";
-                } else {
-                  alert("다시 입력해주세요.");
-                }
-              });
+      var 어레이 = ["bmw", 520, [1, 2, 3]];
+      console.log(어레이[2]);
 
-              */
-
-      //   $("#loginBtn").on("click", function () {
-      //     if ($("#input").val() == "안녕") {
-      //       $("#white-background-text").html("아 맞게 잘 썼다.");
-      //       $(".black-background").fadeIn();
-      //     } else {
-      //       $("#white-background-text").html("다시 입력해주세요.");
-      //       $(".black-background").fadeIn();
-      //     }
-      //   });
-      /*
-      버튼이 클릭 됐을때, email이 공칸이면 전송이 되지 않음.
-            $(".btn-submit").on("click", function () {
-              if (
-                $("#email").val() === " " ||
-                $("#email").val() === null ||
-                $("#email").val().length === 0
-              ) {
-                $("#white-background-text").html("이메일을 입력해 주세요.");
-                return false;
-              }
-            });
-            */
-
-      // 폼이 전송될 때,
-      // 이메일이 공칸일 경우 폼의 전송을 막고, 안내문
-      // 비밀번호가 공칸일 경우 폼의 전송을 막고, 안내문
-
-      // on.("submit")**
-
-      // var 이메일안내창 = $("#emailAlert");
-
-      // $("#form").on("submit", function (e) {
-      //   if ($("#email").val() == "") {
-      //     e.preventDefault();
-      //     이메일안내창.css("display", "block");
-      //   }
-      //   if ($("#password").val() == "") {
-      //     e.preventDefault();
-      //     $("#passwordAlert").show();
-      //   }
-      // });
-
-      // 이메일 형식 검증하기
-      //  /\S@/.test("ㅅㅅㅅ@");
-      //  /\S+@\S+\.\S+/.test("dddd@ddd.sdf");
-
-      $("#form").on("submit", function (e) {
-        // 만약에 지금 이메일 input에 입력된 값이 정규식과 비교했을 때 false인 경우 폼 전송 막기, 안내창 띄우기
-        var 입력한이메일 = $("#email").val();
-        var 입력한비밀번호 = $("#password").val();
-        if (
-          false ==
-          /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(입력한이메일)
-        ) {
-          e.preventDefault();
-          $("#emailAlert").html("이메일이 정확하지 않습니다.").show();
-        } else if (입력한이메일 == " ") {
-          e.preventDefault();
-          $("emailAlert").html("이메일칸이 빈칸입니다.").show();
-        }
-        if (false == /[A-B0-9]+/.test(입력한비밀번호)) {
-          e.preventDefault();
-          $("#passwordAlert")
-            .html("비밀번호에 대문자와 숫자를 섞어주세요.")
-            .show();
-        } else if (입력한비밀번호.length < 8) {
-          e.preventDefault;
-          $("#passwordAlert").html("비밀번호를 9글자 이상 적어주세요.").show();
-        }
-      });
-      // $("#close").on("click", function () {
-      //   $(".black-background").fadeOut();
-      //   $(".white-background").animate({
-      //     marginTop: "-200px",
-      //   });
-      // });
-
-      // $("#loginBtn").on("click", function () {
-      //   $(".black-background").fadeIn();
-      //   $(".white-background").animate({
-      //     marginTop: "200px",
-      //   });
-      // });
-
-      $("#loginBtn").on("click", function () {
-        $(".black-background").addClass("slide-down");
-      });
-
-      $("#close").on("click", function () {
-        $("#passwordAlert").hide();
-        $("#emailAlert").hide();
-        $(".black-background").removeClass("slide-down");
-      });
-
-      $("#productLink").on("click", function () {
-        $(".nav-sub").slideToggle();
-      });
+      var 오브젝트 = { brand: "bmw", model: 520 };
+      console.log(오브젝트.brand);
     </script>
 
     <!-- Optional JavaScript; choose one of the two! -->
@@ -361,6 +193,8 @@
     ></script>
     <script src="js/tap.js"></script>
     <script src="js/login.js"></script>
+    <script src="js/slide.js"></script>
+    <script src="js/form.js"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--

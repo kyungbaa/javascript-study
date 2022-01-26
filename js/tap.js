@@ -61,7 +61,7 @@
 // }
 
 // 이벤트 버블링을 이용해서 만들기.
-// html에 정보심기 data-작명= 값
+// html에 정보심기 data -작명= 값
 // 정보 꺼내려면 html요소,dataset.작명
 $(".list").click(function (e) {
   탭열기(e.target.dataset.id);
