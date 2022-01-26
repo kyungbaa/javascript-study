@@ -54,6 +54,7 @@
         </form>
       </div>
     </div>
+
     <div class="nav-menu scroll-move">
       <h4>KyungBaa Studio</h4>
       <div>
@@ -151,9 +152,9 @@
     <!--탭 시작-->
     <div class="container mt-5">
       <ul class="list">
-        <li class="tab-button">Products</li>
-        <li class="tab-button active">Information</li>
-        <li class="tab-button">Shipping</li>
+        <li class="tab-button" data-id="0">Products</li>
+        <li class="tab-button active" data-id="1">Information</li>
+        <li class="tab-button" data-id="2">Shipping</li>
       </ul>
 
       <div class="tab-content">
@@ -302,7 +303,7 @@
           /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(입력한이메일)
         ) {
           e.preventDefault();
-          $("emailAlert").html("이메일이 정확하지 않습니다.").show();
+          $("#emailAlert").html("이메일이 정확하지 않습니다.").show();
         } else if (입력한이메일 == " ") {
           e.preventDefault();
           $("emailAlert").html("이메일칸이 빈칸입니다.").show();
@@ -336,6 +337,8 @@
       });
 
       $("#close").on("click", function () {
+        $("#passwordAlert").hide();
+        $("#emailAlert").hide();
         $(".black-background").removeClass("slide-down");
       });
 
@@ -357,6 +360,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="js/tap.js"></script>
+    <script src="js/login.js"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
