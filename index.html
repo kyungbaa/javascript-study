@@ -167,16 +167,27 @@
         <p>배송정보입니다. Shipping</p>
       </div>
     </div>
-
-    <h4>상품제목</h4>
-    <p>상품 내용</p>
-
+    <!--데이터 바인딩 -->
+    <h4 id="title">상품제목</h4>
+    <p id="contents">상품 내용</p>
     <script>
-      var 어레이 = ["bmw", 520, [1, 2, 3]];
-      console.log(어레이[2]);
+      const 어레이 = ["bmw", 520];
+      console.log(어레이[1]);
 
-      var 오브젝트 = { brand: "bmw", model: 520 };
+      const 오브젝트 = { brand: "bmw", model: 520 };
       console.log(오브젝트.brand);
+
+      const 자료 = [{ brand: "bmw" }, { model: 520 }];
+
+      //$("#title").html(어레이[0]);
+      //$("#contents").html(오브젝트.model); //오브젝트안의 이름이 model인 데이터
+
+      //document.querySelector("#title").innerHTML = 어레이[0];
+      // document.querySelector("#contents").innerHTML = 어레이[1];
+
+      // document.querySelector("#contents").innerHTML = 오브젝트.model;
+      $("#title").html(자료[0].brand);
+      document.querySelector("#contents").innerHTML = 자료[1].model;
     </script>
 
     <!-- Optional JavaScript; choose one of the two! -->

@@ -29,5 +29,39 @@
         document.getElementById("id").style.display = "block";
       }
     </script>
+    <script>
+      // 출석부 문제
+      const 출석부 = ["흥민", "영희", "철수", "재석", "철수"];
+      function 이름찾기(name) {
+        for (let i = 0; i <= 출석부.length; i++) {
+          if (출석부[i] == name) {
+            console.log(name + "있어요.");
+            return;
+          }
+        }
+      }
+      이름찾기("철수");
+
+      // 구구단 문제
+      for (j = 2; j <= 9; j++) {
+        for (i = 2; i <= 9; i++) {
+          console.log(j * i);
+        }
+      }
+
+      // 영업실적 계산 문제
+      const 월별판매실적목록 = [12, 13, 14, 15, 2];
+      const 월목표판매량 = 30;
+
+      function 목표량계산기(월별판매실적목록, 월목표판매량) {
+        for (i = 0; i <= 월별판매실적목록.length; i++) {
+          let 월판매총합 = 월별판매실적목록[i] + 월판매총합;
+          console.log(월판매총합);
+        }
+        let 월평균판매량 = 월별판매실적목록.length / 월판매총합;
+        console.log(월목표판매량 - 월평균판매량);
+      }
+      목표량계산기();
+    </script>
   </body>
 </html>
