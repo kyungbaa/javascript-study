@@ -9,16 +9,16 @@ const price = document.querySelectorAll(".card-body p span");
 
 // title[0].innerHTML = products[0].title;
 // price[0].innerHTML = products[0].price;
+function 화면출력() {
+  $(title).eq(0).html(products[0].title);
+  $(price).eq(0).html(products[0].price);
 
-$(title).eq(0).html(products[0].title);
-$(price).eq(0).html(products[0].price);
+  $(title).eq(1).html(products[1].title);
+  $(price).eq(1).html(products[1].price);
 
-$(title).eq(1).html(products[1].title);
-$(price).eq(1).html(products[1].price);
-
-$(title).eq(2).html(products[2].title);
-$(price).eq(2).html(products[2].price);
-
+  $(title).eq(2).html(products[2].title);
+  $(price).eq(2).html(products[2].price);
+}
 /*
 for (i = 0; i <= products.length; i++) {
   $(title).eq(i).html(products[i].title);
@@ -32,14 +32,7 @@ $("#price-sort-button").click(function () {
     return a.price - b.price;
   });
   // 정렬은 이제 끝났고 다시 html에 데이터바인딩
-  $(title).eq(0).html(products[0].title);
-  $(price).eq(0).html(products[0].price);
-
-  $(title).eq(1).html(products[1].title);
-  $(price).eq(1).html(products[1].price);
-
-  $(title).eq(2).html(products[2].title);
-  $(price).eq(2).html(products[2].price);
+  화면출력();
 });
 
 // 정렬
@@ -78,24 +71,41 @@ var 뉴어레이 = 어레이.filter(function (a) {
 var 뉴어레이 = 어레이.map(function (a) {
   return a * 2;
 });
+// products 갯수 만큼 상품 배열하기
+function productsHTML() {}
 
 // 이름순정렬 버튼 기능
-// $("#price-sort-name").click(function () {
-//   products.sort(function (a, b) {
-//     return a.title - b.title;
-//   });
+/*
+   sort()함수 
+   1. a,b는 array안에 데이터들 
+   2. +를 return하면 a는 오른쪽 b는 왼쪽
+   3. -를 return하면 a는 왼쪽 b는 오른쪽
+   내림차순일경우 b-a 
 
-//   $(title).eq(0).html(products[0].title);
-//   $(price).eq(0).html(products[0].price);
+*/
+$("#price-sort-name").click(function () {
+  products.sort(function (a, b) {
+    if (a.title < b.title) {
+      return -1;
+    } else {
+      return 1;
+    }
+  });
+  화면출력();
+});
 
-//   $(title).eq(1).html(products[1].title);
-//   $(price).eq(1).html(products[1].price);
+// 역이름순정렬 버튼
 
-//   $(title).eq(2).html(products[2].title);
-//   $(price).eq(2).html(products[2].price);
-// });
-
-// 오만원 이하 상품만 보기 버튼
+$("#price-resort-name").click(function () {
+  products.sort(function (a, b) {
+    if (a.title > b.title) {
+      return -1;
+    } else {
+      return 1;
+    }
+  });
+  화면출력();
+});
 /*
 const 상품명템플릿 = `<h5>${products[i].title}</h5>`;
 const 상품가격템플릿 = `
@@ -103,14 +113,14 @@ const 상품가격템플릿 = `
     가격 <span>${products[i].price}</span>
   </p>`;
 */
-
+/* 내가 한방법 
 $("#price-fliter").click(function () {
-  var 오만원이하제품 = products.filter(function (a) {
+  let 오만원이하제품 = products.filter(function (a) {
     return a.price <= 50000;
   });
   $(".card-group").html(" ");
   for (i = 0; i < 오만원이하제품.length; i++) {
-    var 오만원이하제품템플릿 = ` 
+    let 오만원이하제품템플릿 = ` 
     <div class="card">
     <img src="https://via.placeholder.com/600" />
     <div class="card-body">
@@ -120,5 +130,26 @@ $("#price-fliter").click(function () {
     </div>
   </div>`;
     $(".card-group").append(오만원이하제품템플릿);
+  }
+});
+*/
+
+// 선생님 방법
+$("#price-fliter").click(function () {
+  var 새상품 = products.filter(function (a) {
+    return a.price <= 60000;
+  });
+  $(".card-group").html(" ");
+  for (i = 0; i < 새상품.length; i++) {
+    let template = ` 
+    <div class="card">
+    <img src="https://via.placeholder.com/600" />
+    <div class="card-body">
+      <h5 class="title">${새상품[i].title}</h5>
+      <p>가격 : <span>${새상품[i].price}</span></p>
+      <button class="btn btn-danger">주문하기</button>
+    </div>
+  </div>`;
+    $(".card-group").append(template);
   }
 });
