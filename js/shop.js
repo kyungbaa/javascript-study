@@ -4,8 +4,11 @@ var products = [
   { id: 2, price: 60000, title: "Black Monastery" },
 ];
 
-const title = document.querySelectorAll(".card-body h5");
-const price = document.querySelectorAll(".card-body p span");
+// const title = document.querySelectorAll(".card-body h5");
+// const price = document.querySelectorAll(".card-body p span");
+
+const title = $(".title");
+const price = $(".price");
 
 // title[0].innerHTML = products[0].title;
 // price[0].innerHTML = products[0].price;
@@ -95,7 +98,6 @@ $("#price-sort-name").click(function () {
 });
 
 // 역이름순정렬 버튼
-
 $("#price-resort-name").click(function () {
   products.sort(function (a, b) {
     if (a.title > b.title) {
@@ -146,10 +148,37 @@ $("#price-fliter").click(function () {
     <img src="https://via.placeholder.com/600" />
     <div class="card-body">
       <h5 class="title">${새상품[i].title}</h5>
-      <p>가격 : <span>${새상품[i].price}</span></p>
+      <p>가격 : <span class="price">${새상품[i].price}</span></p>
       <button class="btn btn-danger">주문하기</button>
     </div>
   </div>`;
     $(".card-group").append(template);
+  }
+});
+
+const price_serch_button = document.getElementById("button-addon2");
+const price_input = document.getElementById("price-input");
+
+price_serch_button.addEventListener("click", function () {
+  const serch_price = price_input.value;
+  $(".card-group").html(" ");
+  if (serch_price.length == 0) {
+    alert("가격을 입력해주세요.");
+  } else {
+    var 검색상품목록 = products.filter(function (a) {
+      return a.price <= serch_price;
+    });
+    for (i = 0; i <= serch_price.length; i++) {
+      let template = ` 
+      <div class="card">
+      <img src="https://via.placeholder.com/600" />
+      <div class="card-body">
+        <h5 class="title">${검색상품목록[i].title}</h5>
+        <p>가격 : <span class="price">${검색상품목록[i].price}</span></p>
+        <button class="btn btn-danger">주문하기</button>
+      </div>
+    </div>`;
+      $(".card-group").append(template);
+    }
   }
 });

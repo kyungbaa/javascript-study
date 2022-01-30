@@ -28,7 +28,7 @@
         <img src="https://via.placeholder.com/600" />
         <div class="card-body">
           <h5 class="title">Card title</h5>
-          <p>가격 : <span>70000</span></p>
+          <p>가격 : <span class="price">70000</span></p>
           <button class="btn btn-danger">주문하기</button>
         </div>
       </div>
@@ -64,11 +64,12 @@
       <div class="my-2"></div>
       <div class="input-group mb-3">
         <input
-          type="text"
+          type="number"
           class="form-control"
           placeholder="가격 입력하기"
           aria-label="가격 입력하기"
           aria-describedby="button-addon2"
+          id="price-input"
         />
         <button
           class="btn btn-outline-secondary"
