@@ -10,18 +10,22 @@ var products = [
 const title = $(".title");
 const price = $(".price");
 
-// title[0].innerHTML = products[0].title;
-// price[0].innerHTML = products[0].price;
-function 화면출력() {
-  $(title).eq(0).html(products[0].title);
-  $(price).eq(0).html(products[0].price);
-
-  $(title).eq(1).html(products[1].title);
-  $(price).eq(1).html(products[1].price);
-
-  $(title).eq(2).html(products[2].title);
-  $(price).eq(2).html(products[2].price);
+function reset() {
+  for (var i = 0; i <= products.length; i++) {
+    let template = ` 
+    <div class="card">
+    <img src="https://via.placeholder.com/600" />
+    <div class="card-body">
+      <h5 class="title">${products[i].title}</h5>
+      <p>가격 : <span class="price">${products[i].price}</span></p>
+      <button class="btn btn-danger">주문하기</button>
+    </div>
+  </div>`;
+    $(".card-group").append(template);
+  }
 }
+reset();
+
 /*
 for (i = 0; i <= products.length; i++) {
   $(title).eq(i).html(products[i].title);
@@ -156,6 +160,7 @@ $("#price-fliter").click(function () {
   }
 });
 
+// input 입력 가격으로 검색하기
 const price_search_button = document.getElementById("button-addon2");
 const price_input = document.getElementById("price-input");
 
@@ -181,4 +186,10 @@ price_search_button.addEventListener("click", function () {
       $(".card-group").append(template);
     }
   }
+});
+
+// 검색 초기화 버튼
+
+document.getElementById("reset").addEventListener("click", function () {
+  reset();
 });
