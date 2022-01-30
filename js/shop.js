@@ -156,19 +156,19 @@ $("#price-fliter").click(function () {
   }
 });
 
-const price_serch_button = document.getElementById("button-addon2");
+const price_search_button = document.getElementById("button-addon2");
 const price_input = document.getElementById("price-input");
 
-price_serch_button.addEventListener("click", function () {
-  const serch_price = price_input.value;
+price_search_button.addEventListener("click", function () {
+  const search_price = price_input.value;
   $(".card-group").html(" ");
-  if (serch_price.length == 0) {
+  if (search_price.length == 0) {
     alert("가격을 입력해주세요.");
   } else {
     var 검색상품목록 = products.filter(function (a) {
-      return a.price <= serch_price;
+      return a.price <= search_price;
     });
-    for (i = 0; i <= serch_price.length; i++) {
+    for (i = 0; i <= search_price.length; i++) {
       let template = ` 
       <div class="card">
       <img src="https://via.placeholder.com/600" />
