@@ -12,19 +12,24 @@ $("button").click(function () {
   const h1태그 = document.querySelector("h1");
   const 글씨 = document.querySelector("h1").innerHTML;
   h1태그.innerHTML = ""; // $("h1").html("");
-  setTimeout(function () {
-    h1태그.innerHTML = h1태그.innerHTML + 글씨[0];
-  }, 500);
-  setTimeout(function () {
-    h1태그.innerHTML = h1태그.innerHTML + "b";
-  }, 1000);
-  setTimeout(function () {
-    h1태그.innerHTML = h1태그.innerHTML + "c";
-  }, 1500);
-  setTimeout(function () {
-    h1태그.innerHTML = h1태그.innerHTML + "d";
-  }, 2000);
-  setTimeout(function () {
-    h1태그.innerHTML = h1태그.innerHTML + "e";
-  }, 2500);
+  //   setTimeout(function () {
+  //     h1태그.innerHTML = h1태그.innerHTML + 글씨[0];
+  //   }, 500);
+  //   setTimeout(function () {
+  //     h1태그.innerHTML = h1태그.innerHTML + "b";
+  //   }, 1000);
+  //   setTimeout(function () {
+  //     h1태그.innerHTML = h1태그.innerHTML + "c";
+  //   }, 1500);
+  //   setTimeout(function () {
+  //     h1태그.innerHTML = h1태그.innerHTML + "d";
+  //   }, 2000);
+  //   setTimeout(function () {
+  //     h1태그.innerHTML = h1태그.innerHTML + "e";
+  //   }, 2500);
+  for (let i = 0; i < 글씨.length; i++) {
+    setTimeout(function () {
+      h1태그.innerHTML = h1태그.innerHTML + 글씨[i];
+    }, 500 * i);
+  }
 });
