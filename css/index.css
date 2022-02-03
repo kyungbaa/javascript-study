@@ -97,7 +97,7 @@
 .slide-container {
   width: 300vw;
   transform: translateX(0vw);
-  transition: transform 1s ease-in-out;
+  /*transition: transform 1s ease-in-out;*/
 }
 .slide-box {
   width: 100vw;
