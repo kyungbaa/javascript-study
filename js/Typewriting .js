@@ -7,10 +7,13 @@
 setTimeout(function () {
   console.log(111);
 }, 1000);
-
+const h1태그 = document.querySelector("h1");
+const 글씨 = document.querySelector("h1").innerHTML;
 $("button").click(function () {
-  const h1태그 = document.querySelector("h1");
-  const 글씨 = document.querySelector("h1").innerHTML;
+  애니메이션();
+});
+
+function 애니메이션() {
   h1태그.innerHTML = ""; // $("h1").html("");
   //   setTimeout(function () {
   //     h1태그.innerHTML = h1태그.innerHTML + 글씨[0];
@@ -30,6 +33,6 @@ $("button").click(function () {
   for (let i = 0; i < 글씨.length; i++) {
     setTimeout(function () {
       h1태그.innerHTML = h1태그.innerHTML + 글씨[i];
-    }, 500 * i);
+    }, 200 * i);
   }
-});
+}
